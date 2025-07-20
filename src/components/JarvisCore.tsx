@@ -73,6 +73,11 @@ export const JarvisCore: React.FC<JarvisCoreProps> = ({ children }) => {
       } catch (speechError) {
         console.error('🚨 Speech synthesis/playback failed:', speechError);
         // Continue without speech but show the text response
+        addMessage({ 
+          type: 'assistant', 
+          text: '⚠️ Voice synthesis unavailable - check ElevenLabs API key', 
+          isVoice: false 
+        });
       }
       
       updateState({ isSpeaking: false });

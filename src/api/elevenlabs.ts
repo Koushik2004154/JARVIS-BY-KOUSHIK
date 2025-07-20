@@ -44,7 +44,13 @@ export const synthesizeSpeech = async (text: string): Promise<string> => {
       console.error('🚨 Response status:', error.response?.status);
       console.error('🚨 Response data:', error.response?.data);
       if (error.response?.status === 401) {
-        throw new Error('Invalid ElevenLabs API key');
+        throw new Error('Invalid ElevenLabs API key - please check your .env file');
+      }
+      if (error.response?.status === 429) {
+        throw new Error('ElevenLabs API rate limit exceeded - please try again later');
+      }
+      if (error.response?.status >= 500) {
+        throw new Error('ElevenLabs service temporarily unavailable');
       }
     }
     throw new Error(`Failed to synthesize speech: ${error instanceof Error ? error.message : 'Unknown error'}`);

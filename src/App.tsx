@@ -41,12 +41,18 @@ function App() {
           <p className="text-red-200 mb-6 text-sm leading-relaxed">
             Please set up your environment variables in a <code className="bg-red-900/30 px-2 py-1 rounded">.env</code> file:
           </p>
+          <p className="text-red-200/80 mb-4 text-xs">
+            Copy <code className="bg-red-900/30 px-1 py-0.5 rounded">.env.example</code> to <code className="bg-red-900/30 px-1 py-0.5 rounded">.env</code> and add your API keys
+          </p>
           <div className="text-left text-xs text-red-300 bg-red-900/20 p-4 rounded-lg space-y-2">
             <div>VITE_OPENAI_API_KEY=your_key_here</div>
             <div>VITE_ELEVENLABS_API_KEY=your_key_here</div>
             <div>VITE_SEARCH_API_KEY=your_key_here</div>
             <div>VITE_PICOVOICE_ACCESS_KEY=your_key_here</div>
           </div>
+          <p className="text-red-200/70 mt-4 text-xs">
+            After updating .env, restart the dev server with <code className="bg-red-900/30 px-1 py-0.5 rounded">npm run dev</code>
+          </p>
         </div>
       </div>
     );
