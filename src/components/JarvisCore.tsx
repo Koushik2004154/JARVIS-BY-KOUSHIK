@@ -71,7 +71,7 @@ export const JarvisCore: React.FC<JarvisCoreProps> = ({ children }) => {
         await playAudio(audioUrl);
         console.log('✅ Speech playback completed');
       } catch (speechError) {
-        console.error('🚨 Speech synthesis/playback failed:', speechError);
+        console.warn('⚠️ Speech synthesis/playback failed:', speechError);
         // Continue without speech but show the text response
         addMessage({ 
           type: 'assistant', 

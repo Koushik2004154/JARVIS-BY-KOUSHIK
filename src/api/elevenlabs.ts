@@ -39,10 +39,10 @@ export const synthesizeSpeech = async (text: string): Promise<string> => {
     const audioBlob = new Blob([response.data], { type: 'audio/mpeg' });
     return URL.createObjectURL(audioBlob);
   } catch (error) {
-    console.error('🚨 ElevenLabs API error:', error);
+    console.warn('⚠️ ElevenLabs API error:', error);
     if (axios.isAxiosError(error)) {
-      console.error('🚨 Response status:', error.response?.status);
-      console.error('🚨 Response data:', error.response?.data);
+      console.warn('⚠️ Response status:', error.response?.status);
+      console.warn('⚠️ Response data:', error.response?.data);
       if (error.response?.status === 401) {
         throw new Error('Invalid ElevenLabs API key - please check your .env file');
       }

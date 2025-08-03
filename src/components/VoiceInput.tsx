@@ -46,9 +46,9 @@ export const VoiceInput: React.FC<VoiceInputProps> = ({
       };
       
       recognition.onerror = (event) => {
-        console.error('🚨 Speech recognition error:', event.error);
         // Only report actual errors, not expected states
         if (event.error !== 'no-speech' && event.error !== 'aborted') {
+          console.error('🚨 Speech recognition error:', event.error);
           onError(`Voice recognition error: ${event.error}`);
         } else {
           console.log('🎤 Speech recognition ended normally:', event.error);
